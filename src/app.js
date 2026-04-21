@@ -23,7 +23,7 @@ app.use('/uploads', express.static('uploads'));
 app.use(express.urlencoded({ extended: true }));
 
 // routes
-app.use('/api/notes', noteRoutes);
+app.use('/api/v1/notes', noteRoutes);
 
 app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'API activa' });
