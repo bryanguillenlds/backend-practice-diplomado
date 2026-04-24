@@ -7,6 +7,8 @@ import { loggerMiddleware } from './presentation/middlewares/logger.middleware.j
 import noteRoutes from './presentation/routes/note.routes.js';
 import connectDB from './infra/database/mongo/connection.js';
 // import { connectMySQL } from './infra/database/mysql/connection.js';
+import authRoutes from './presentation/routes/auth.routes.js';
+import { setupSwagger } from './infra/config/swagger.config.js';
 
 await connectDB();
 // await connectMySQL();
@@ -24,8 +26,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use('/api/v1/notes', noteRoutes);
+app.use('/api/v1/auth', authRoutes);
 
-app.get('/api/health', (req, res) => {
+setupSwagger(app);
+
+app.get('/api/v1/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'API activa' });
 });
 
