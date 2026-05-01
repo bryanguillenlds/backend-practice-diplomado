@@ -44,6 +44,18 @@ export default class NoteController {
     }
   };
 
+  getPublicNoteById = async (req, res) => {
+    try {
+      const note = await this.noteService.getPublicNoteById(req.params.id);
+      if (!note) {
+        return res.status(404).json({ status: 'ERROR', message: 'Nota no encontrada' });
+      }
+      res.status(200).json(note);
+    } catch (error) {
+      res.status(403).json({ status: 'ERROR', message: error.message });
+    }
+  };
+
   updateNote = async (req, res) => {
     const payload = { ...req.body };
     if (req.file) {

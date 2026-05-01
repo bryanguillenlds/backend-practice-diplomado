@@ -76,6 +76,28 @@ router.get('/', authMiddleware, roleMiddleware(['admin', 'user']), noteControlle
 
 /**
  * @swagger
+ * /notes/{id}/public:
+ *   get:
+ *     tags: [Notas]
+ *     summary: Obtener una nota publica por id
+ *     description: No requiere token. Si la nota es privada, responde 403.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema: { type: string }
+ *     responses:
+ *       200:
+ *         description: Nota publica encontrada
+ *       403:
+ *         description: La nota es privada
+ *       404:
+ *         description: Nota no encontrada
+ */
+router.get('/:id/public', noteController.getPublicNoteById);
+
+/**
+ * @swagger
  * /notes/{id}:
  *   get:
  *     tags: [Notas]
