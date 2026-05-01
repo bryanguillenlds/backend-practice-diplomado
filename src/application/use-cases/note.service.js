@@ -8,7 +8,7 @@ export default class NoteService {
   async createNote(note) {
     if (!note.title || !note.content) { throw new Error('Title and content are required') };
 
-    const newNote = new NoteEntity(note.id, note.title, note.content, note.image, note.isPrivate, note.password, note.userId);
+    const newNote = new NoteEntity(note.id, note.title, note.content, note.image, note.isPrivate, note.password, note.userId, note.categoryId);
 
     return await this.noteRepository.save(newNote);
   }

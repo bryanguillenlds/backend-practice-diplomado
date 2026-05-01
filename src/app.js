@@ -5,6 +5,7 @@ import 'express-async-errors';
 import morgan from 'morgan';
 import { loggerMiddleware } from './presentation/middlewares/logger.middleware.js';
 import noteRoutes from './presentation/routes/note.routes.js';
+import categoryRoutes from './presentation/routes/category.routes.js';
 import connectDB from './infra/database/mongo/connection.js';
 // import { connectMySQL } from './infra/database/mysql/connection.js';
 import authRoutes from './presentation/routes/auth.routes.js';
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use('/api/v1/notes', noteRoutes);
+app.use('/api/v1/categories', categoryRoutes);
 app.use('/api/v1/auth', authRoutes);
 
 setupSwagger(app);

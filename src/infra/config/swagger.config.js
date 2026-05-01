@@ -29,6 +29,7 @@ const options = {
         tags: [
             { name: 'Auth', description: 'Registro e inicio de sesion' },
             { name: 'Notas', description: 'CRUD de notas (requiere JWT)' },
+            { name: 'Categorias', description: 'CRUD de categorias (requiere JWT)' },
         ],
     },
     apis: [path.join(__dirname, '../../presentation/routes/*.js')],

@@ -36,6 +36,7 @@ const router = Router();
  *               content: { type: string }
  *               isPrivate: { type: string, example: "false" }
  *               userId: { type: string }
+ *               categoryId: { type: string }
  *               image:
  *                 type: string
  *                 format: binary
@@ -116,6 +117,7 @@ router.get('/:id', authMiddleware, roleMiddleware(['admin', 'user']), noteContro
  *               content: { type: string }
  *               isPrivate: { type: string }
  *               userId: { type: string }
+ *               categoryId: { type: string }
  *               image:
  *                 type: string
  *                 format: binary

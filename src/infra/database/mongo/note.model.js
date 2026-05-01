@@ -7,6 +7,7 @@ const noteSchema = new Schema({
   isPrivate: { type: Boolean, default: false },
   password: { type: String, required: false },
   userId: { type: String, required: false },
+  categoryId: { type: String, required: false },
 }, { timestamps: true });
 
 const NoteModel = model('Note', noteSchema);
